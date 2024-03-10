@@ -25,15 +25,15 @@ class Voto:
 
 class Libretto:
     def __init__(self):
-        self.voti = []
+        self._voti = []
 
     def append(self, voto):
-        self.voti.append(voto)
+        self._voti.append(voto)
 
     def media(self):
-        if len(self.voti)==0:
+        if len(self._voti)==0:
             raise ValueError("Elenco voti vuoto")
-        punteggi = [v.punteggio for v in self.voti]
+        punteggi = [v.punteggio for v in self._voti]
         return sum(punteggi)/len(punteggi)
 
 
@@ -52,5 +52,8 @@ voto_2 = Voto("Basi di Dati", 8, 30, True, '2023-06-15')
 mio_libretto = Libretto()
 mio_libretto.append(voto_1)
 mio_libretto.append(voto_2)
+# mio_libretto._voti.append(voto_1)  NO
 
 print(mio_libretto.media())
+
+# print(mio_libretto._voti)  NO
